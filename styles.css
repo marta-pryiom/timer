@@ -1,0 +1,30 @@
+.button {
+  font-size: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 15px;
+  color: brown;
+}
+.startBtn {
+  background-color: rgb(202, 248, 233);
+}
+.stopBtn {
+  background-color: rgb(240, 245, 179);
+}
+.clearBtn {
+  background-color: rgb(246, 217, 244);
+  margin-left: 15px;
+}
+.clockface {
+  padding: 15px;
+  background-color: rgb(224, 231, 243);
+  margin-left: 30px;
+  margin-right: 30px;
+  border-radius: 15px;
+}
+.clockTimer {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
