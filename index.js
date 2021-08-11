@@ -15,20 +15,23 @@ class StopWatch {
   calc() {
     const DateNow = Date.now();
     const delta = DateNow - this.startTime;
-    const hours = Math.floor(
-      (delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+    const hours = this.pad(
+      Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
     );
-    const mins = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
-    const secs = Math.floor((delta % (1000 * 60)) / 1000);
+    const mins = this.pad(Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60)));
+    const secs = this.pad(Math.floor((delta % (1000 * 60)) / 1000));
 
     this.refs.timerBox.textContent = `${hours}:${mins}:${secs}`;
   }
   onStartWatchClick() {
     this.startTime = Date.now();
-    this.intervalId = setInterval(this.calc, 1000);
+    this.intervalId = setInterval(this.calc.bind(this), 1000);
   }
   onStoptWatchClick() {
     clearInterval(this.intervalId);
+  }
+  pad(value) {
+    return String(value).padStart(2, '0');
   }
   unit() {
     this.refs.startBtn.addEventListener('click', this.onStartWatchClick);
